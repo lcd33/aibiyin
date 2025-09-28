@@ -1,15 +1,31 @@
 import React, { memo, useEffect } from 'react'
-import HYRequest from '@/services'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
+
+import { fetchGoodPriceInfo } from '@/store/modules/home'
+import HomeBanner from './componets/homeBanner'
+import SectionHeader from '@/components/section-header'
+import RoomList from '@/components/room-list'
+import { HomeWrapper } from './style'
 const index = memo(() => {
+  // 1. 从store中获取数据
+  const { goodPriceInfo } = useSelector(state => ({
+    goodPriceInfo: state.home.goodPriceInfo
+  }), shallowEqual)
+
+  const dispatch = useDispatch()
   useEffect(() => {
-    HYRequest.get({
-      url: '/home/highscore'
-    }).then(res => {
-      console.log(res)
-    })
-  }, [])
+    // 发送请求获取数据
+    dispatch(fetchGoodPriceInfo())
+  }, [dispatch])
+
   return (
-    <div>homa page</div>
+    <HomeWrapper>
+      <HomeBanner />
+      <div className="content">
+        <SectionHeader title={goodPriceInfo.title} />
+        <RoomList roomList={goodPriceInfo.list} />
+      </div>
+    </HomeWrapper>
   )
 })
 
