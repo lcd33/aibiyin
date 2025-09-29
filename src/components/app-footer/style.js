@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const AppFooterWrapper = styled.div`
   border-top: 1px solid #e5e5e5;
- 
+  margin-top: 100px;
   .layout {
     width: 1032px;
     margin: 0 auto;

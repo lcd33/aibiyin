@@ -3,19 +3,19 @@ import styled from 'styled-components'
 const SectionHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  line-height: 1;
   .left {
     /* 防止margin折叠 */
-    overflow: hidden
+    overflow: hidden;
     .title {
       font-size: 24px;
       font-weight: bold;
-      margin-bottom: 16px;
       color: #333;
     }
     .subtitle {
       font-size: 16px;
-      margin-bottom: 20px;
+      margin-top: 16px;
       color: #222;
     }
   }
@@ -27,7 +27,7 @@ const SectionHeaderWrapper = styled.div`
 
   &:hover {
     .right {
-      display: block;
+      display: inline-block;
     }
   }
   

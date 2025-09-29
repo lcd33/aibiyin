@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 export const RoomItemWrapper = styled.li`
-  width:25%;
+  width:${props => props.width};
   padding: 8px;
   box-sizing: border-box;
+  flex-shrink: 0;
   .inner{
     width:100% ;
   }
@@ -22,6 +23,8 @@ export const RoomItemWrapper = styled.li`
   }
   .dec{
     margin: 10px 0 5px;
+    font-size: 10px;
+    font-weight: 700;
   }
   .name{
     font-size: 16px;

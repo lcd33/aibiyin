@@ -3,9 +3,9 @@ import React, { memo } from 'react'
 import { RoomItemWrapper } from './style'
 import Rating from '@mui/material/Rating';
 const RoomItem = memo((props) => {
-  const { itemData } = props
+  const { itemData = {}, itemWidth = '25%' } = props
   return (
-    <RoomItemWrapper>
+    <RoomItemWrapper style={{ width: itemWidth }}>
       <div className='inner'>
         <div className="cover">
           <img src={itemData.picture_url} />
@@ -25,8 +25,7 @@ const RoomItem = memo((props) => {
 
 RoomItem.propTypes = {
   itemData: PropTypes.object.isRequired,
+  itemWidth: PropTypes.string,
 }
-RoomItem.defaultProps = {
-  itemData: {},
-}
+
 export default RoomItem
