@@ -15,14 +15,10 @@ const ScrollView = memo((props) => {
     setShowRight(totalDistanceRef.current > 0)
   }, [props.children])
 
-
-
   function controlClick(isRight = true) {
     indexRef.current = isRight ? indexRef.current + 1 : indexRef.current - 1
     const itemNode = scrollRef.current.children[indexRef.current]
-    console.log(indexRef.current, '11')
     scrollRef.current.style.transform = `translateX(${-itemNode.offsetLeft}px)`
-    console.log(itemNode.offsetLeft)
     // 判断是否显示setShowLeft
     setShowRight(totalDistanceRef.current > itemNode.offsetLeft * indexRef.current)
     setShowLeft(indexRef.current > 0)

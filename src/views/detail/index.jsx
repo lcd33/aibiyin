@@ -1,8 +1,10 @@
 import React, { memo } from 'react'
+import { useSelector } from 'react-redux'
 
 const Detail = memo(() => {
+  const { roomDetail } = useSelector(state => state.detail)
   return (
-    <div>Detail</div>
+    <div>{roomDetail.name}</div>
   )
 })
 
