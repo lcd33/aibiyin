@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const EntireFilterWrapper = styled.div`
+  margin-top: 80px;
   padding: 0 0 0 16px;
   height: 48px;
   border-bottom: 1px solid #f2f2f2;

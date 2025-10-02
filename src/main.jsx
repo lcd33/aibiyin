@@ -14,13 +14,14 @@ import store from './store'
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
   <HashRouter>
-    <Suspense fallback={<div>loading...</div>}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <Suspense fallback={<div>loading...</div>}>
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
-      </Provider>
-    </Suspense>
+      </Suspense>
+    </Provider>
+
   </HashRouter>
   // </StrictMode>,
 )

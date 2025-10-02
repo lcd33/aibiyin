@@ -9,7 +9,9 @@ import HomeSectionV3 from './componets/home-section-v3'
 import HomeLongFor from './componets/home-longfor'
 import { HomeWrapper } from './style'
 import isEmpty from '@/utils/isEmpty'
-const index = memo(() => {
+import { changeConfig } from '@/store/modules/main'
+
+const index = memo((props) => {
   // 1. 从store中获取数据
   const { goodPriceInfo = {}, highScoreInfo = {}, discountInfo = {}, hotRecommendInfo = {}, longForInfo = {}, homePlusInfo = {} } = useSelector(state => ({
     goodPriceInfo: state.home.goodPriceInfo,
@@ -22,6 +24,7 @@ const index = memo(() => {
 
   const dispatch = useDispatch()
   useEffect(() => {
+    dispatch(changeConfig({ isFixed: true, topAlfp: true }))
     // 发送请求获取数据
     dispatch(fetchGoodPriceInfo())
     // 发送请求获取高分数数据
